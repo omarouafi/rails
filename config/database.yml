@@ -1,0 +1,12 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: edulib
+  username: postgres
+  password: root
+  host: localhost
+  port: 5433
+
+development:
+  <<: *default

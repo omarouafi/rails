@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Shifts</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Start Date</th>
+        <th>Worker</th>
+        <th colspan="2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shifts.each do |shift| %>
+        <tr>
+          <td><%= shift.start_date %></td>
+          <td><%= shift.worker.name %></td>
+          <td>
+            <%= link_to 'Edit', edit_shift_path(shift), class: "btn btn-primary" %>
+          </td>
+          <td>
+            <%= link_to 'Delete', shift_path(shift), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Shift', new_shift_path, class: "btn btn-success" %>
+</div>

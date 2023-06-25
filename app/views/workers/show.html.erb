@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Worker Details</h1>
+
+  <h3>Name: <%= @worker.name %></h3>
+  <h3>Status: <%= @worker.status %></h3>
+
+  <h2>Shifts:</h2>
+  <% if @shifts.present? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Start Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @shifts.each do |shift| %>
+          <tr>
+            <td><%= shift.start_date %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No shifts found for this worker.</p>
+  <% end %>
+
+  <%= link_to 'Edit', edit_worker_path(@worker), class: "btn btn-primary" %>
+  <%= link_to 'Back to Workers', workers_path, class: "btn btn-secondary" %>
+</div>

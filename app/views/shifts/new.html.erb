@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>New Shift</h1>
+
+  <%= form_with(model: @shift, url: shifts_path, local: true) do |form| %>
+    <div class="mb-3">
+      <%= form.label :start_date, class: "form-label" %>
+      <%= form.datetime_local_field :start_date, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :worker_id, class: "form-label" %>
+      <%= form.collection_select :worker_id, Worker.all, :id, :name, { prompt: "Select Worker" }, class: "form-control" %>
+    </div>
+
+    <%= form.submit "Create Shift", class: "btn btn-primary" %>
+  <% end %>
+</div>
